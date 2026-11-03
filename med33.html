@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name and Age Validation</title>
+</head>
+<body>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Name:</label>
+        <input type="text" id="name">
+        <span id="nameError" style="color: red;"></span>
+
+        <br><br>
+
+        <label>Age:</label>
+        <input type="text" id="age">
+        <span id="ageError" style="color: red;"></span>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        function validateForm() {
+
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+
+            let valid = true;
+
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("ageError").innerHTML = "";
+
+            // Validate name
+            if (!/^[a-zA-Z]+$/.test(name)) {
+                document.getElementById("nameError").innerHTML =
+                    "Only letters are allowed!";
+                valid = false;
+            }
+
+            // Validate age
+            if (age === "" || isNaN(Number(age))) {
+                document.getElementById("ageError").innerHTML =
+                    "Only numbers are allowed!";
+                valid = false;
+            }
+
+            return valid;
+        }
+    </script>
+
+</body>
+</html>

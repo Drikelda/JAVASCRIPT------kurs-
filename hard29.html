@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Array</title>
+</head>
+<body>
+
+    <script>
+        let words = ["Apple", "Banana", "Cat", "Elephant", "Dog"];
+
+        let index = Math.floor(Math.random() * words.length);
+
+        let [word] = words.slice(index);
+
+        console.log(word || "No word found");
+    </script>
+
+</body>
+</html>

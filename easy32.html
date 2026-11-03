@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Validation</title>
+</head>
+<body>
+
+    <h2>Name Form</h2>
+
+    <form>
+        <label>Name:</label>
+
+        <input type="text" id="name" oninput="validateName()">
+
+        <span id="error" style="color: red;"></span>
+    </form>
+
+    <script>
+        function validateName() {
+            let name = document.getElementById("name").value;
+
+            let error = document.getElementById("error");
+
+            if (!/^[a-zA-Z]+$/.test(name)) {
+                error.innerHTML = "Only letters are allowed!";
+            }
+            else {
+                error.innerHTML = "";
+            }
+        }
+    </script>
+
+</body>
+</html>

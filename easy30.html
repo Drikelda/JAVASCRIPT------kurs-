@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name and Age</title>
+</head>
+<body>
+
+    <label>Name:</label>
+    <input type="text" id="name">
+
+    <br><br>
+
+    <label>Age:</label>
+    <input type="number" id="age">
+
+    <br><br>
+
+    <button onclick="showMessage()">Submit</button>
+
+    <script>
+        function showMessage() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+
+            alert("Hello " + name + ", you are " + age + " years old!");
+        }
+    </script>
+
+</body>
+</html>

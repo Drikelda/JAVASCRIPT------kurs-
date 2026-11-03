@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        #clock {
+            font-size: 40px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Digital Clock</h2>
+
+    <h1 id="clock">00:00:00</h1>
+
+    <h3>Set Alarm</h3>
+
+    <input type="time" id="alarmTime">
+
+    <button onclick="setAlarm()">Set Alarm</button>
+
+    <p id="message"></p>
+
+    <script>
+        function updateClock() {
+            let now = new Date();
+
+            let hours = String(now.getHours()).padStart(2, "0");
+            let minutes = String(now.getMinutes()).padStart(2, "0");
+            let seconds = String(now.getSeconds()).padStart(2, "0");
+
+            let currentTime = hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("clock").innerHTML = currentTime;
+
+            if (alarm === hours + ":" + minutes) {
+                if (seconds === "00") {
+                    alert("Alarm! Time is up!");
+                    alarm = "";
+                }
+            }
+        }
+
+        let alarm = "";
+
+        function setAlarm() {
+            alarm = document.getElementById("alarmTime").value;
+
+            if (alarm !== "") {
+                document.getElementById("message").innerHTML = "Alarm set for " + alarm;
+            }
+        }
+
+        setInterval(updateClock, 1000);
+
+        updateClock();
+    </script>
+
+</body>
+</html>

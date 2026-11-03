@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome</title>
+</head>
+<body>
+
+    <h2>Palindrome Checker</h2>
+
+    <script>
+        function checkPalindrome(words) {
+
+            for (let word of words) {
+
+                let reversed = word.split("").reverse().join("");
+
+                if (word === reversed) {
+                    document.write(word + " is a palindrome.<br>");
+                }
+                else {
+                    document.write(word + " is not a palindrome.<br>");
+                }
+            }
+        }
+
+        let words = ["level", "hello", "radar", "world", "madam"];
+
+        checkPalindrome(words);
+    </script>
+
+</body>
+</html>

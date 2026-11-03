@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Constructor</title>
+</head>
+<body>
+
+    <script>
+        // Constructor function
+        function Book(title, author, pages) {
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+
+            // Method
+            this.summary = function() {
+                document.write(
+                    this.title + " by " + this.author +
+                    " has " + this.pages + " pages."
+                );
+            };
+        }
+
+        // Create a book object
+        let book1 = new Book("Harry Potter", "J.K. Rowling", 350);
+
+        // Print book summary
+        book1.summary();
+
+    </script>
+
+</body>
+</html>

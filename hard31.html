@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name List</title>
+
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Name List</h2>
+
+    <input type="text" id="name" placeholder="Enter a name">
+    <button onclick="addName()">Add Name</button>
+
+    <br><br>
+
+    <input type="text" id="search" placeholder="Search a name">
+    <button onclick="searchName()">Search</button>
+
+    <ul id="nameList"></ul>
+
+    <script>
+        let names = [];
+
+        function addName() {
+            let name = document.getElementById("name").value;
+
+            if (name !== "") {
+                names.push(name);
+
+                displayNames();
+
+                document.getElementById("name").value = "";
+            }
+        }
+
+        function displayNames() {
+            let list = document.getElementById("nameList");
+
+            list.innerHTML = "";
+
+            for (let i = 0; i < names.length; i++) {
+                let item = document.createElement("li");
+
+                item.textContent = names[i];
+
+                list.appendChild(item);
+            }
+        }
+
+        function searchName() {
+            let search = document.getElementById("search").value.toLowerCase();
+
+            let items = document.getElementById("nameList").children;
+
+            for (let i = 0; i < names.length; i++) {
+
+                items[i].classList.remove("highlight");
+
+                if (names[i].toLowerCase() === search) {
+                    items[i].classList.add("highlight");
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
