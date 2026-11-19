@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Installation</title>
+
+    <!-- Install jQuery using CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <h1>Testing jQuery</h1>
+
+    <script>
+        // Check if jQuery has loaded
+        if (window.jQuery) {
+            alert("jQuery loaded successfully!");
+        }
+    </script>
+
+</body>
+</html>
