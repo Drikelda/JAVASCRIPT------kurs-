@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highlight Visible Items</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <h2>My Shopping List</h2>
+
+    <ul>
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Oranges</li>
+        <li>Milk</li>
+        <li>Bread</li>
+    </ul>
+
+    <button id="highlightBtn">
+        Highlight Visible Items
+    </button>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#highlightBtn").click(function() {
+
+                $("li:visible").css("background-color", "yellow");
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
