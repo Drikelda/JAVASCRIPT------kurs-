@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Animation Chaining</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        #myDiv {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>jQuery Animation Example</h2>
+
+    <button id="animateBtn">Start Animation</button>
+
+    <div id="myDiv"></div>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#animateBtn").click(function() {
+
+                $("#myDiv")
+
+                    // 1. Increase width to 300px
+                    .animate({
+                        width: "300px"
+                    }, 1000)
+
+                    // 2. Change background color to green
+                    .queue(function(next) {
+                        $(this).css("background-color", "green");
+                        next();
+                    })
+
+                    // 3. Slide the div up
+                    .slideUp(1000)
+
+                    // 4. Wait 2 seconds, then slide down
+                    .delay(2000)
+                    .slideDown(1000);
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
