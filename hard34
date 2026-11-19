@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reaction Time Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        #circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            display: none;
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Reaction Time Game</h1>
+    <p>Click the circles as quickly as possible!</p>
+
+    <h3 id="result">Your reaction time will appear here.</h3>
+
+    <div id="circle"></div>
+
+    <script>
+        const circle = document.getElementById("circle");
+        const result = document.getElementById("result");
+
+        let startTime;
+
+        // Generate a random color
+        function randomColor() {
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+
+            return `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        // Show the circle at a random position
+        function showCircle() {
+
+            const size = Math.random() * 80 + 50;
+
+            const maxX = window.innerWidth - size;
+            const maxY = window.innerHeight - size;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            circle.style.width = size + "px";
+            circle.style.height = size + "px";
+
+            circle.style.left = x + "px";
+            circle.style.top = y + "px";
+
+            circle.style.backgroundColor = randomColor();
+
+            circle.style.display = "block";
+
+            startTime = Date.now();
+        }
+
+        // Hide the circle and show it again later
+        function appearAfterDelay() {
+
+            circle.style.display = "none";
+
+            const delay = Math.random() * 2000 + 1000;
+
+            setTimeout(showCircle, delay);
+        }
+
+        // Measure reaction time when clicked
+        circle.addEventListener("click", function() {
+
+            const endTime = Date.now();
+
+            const reactionTime = endTime - startTime;
+
+            result.textContent =
+                "Your reaction time: " + reactionTime + " ms";
+
+            appearAfterDelay();
+        });
+
+        // Start the game
+        appearAfterDelay();
+
+    </script>
+
+</body>
+</html>
