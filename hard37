@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Selectable Example</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- jQuery UI CDN -->
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet"
+          href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+    <style>
+        #selectable {
+            list-style-type: none;
+            margin: 20px;
+            padding: 0;
+            width: 250px;
+        }
+
+        #selectable li {
+            margin: 5px;
+            padding: 12px;
+            background-color: lightgray;
+            border: 1px solid gray;
+            cursor: pointer;
+        }
+
+        /* Selected items */
+        #selectable .ui-selected {
+            background-color: lightblue;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>jQuery UI Selectable Example</h2>
+
+    <p>Click or drag over multiple items to select them.</p>
+
+    <ul id="selectable">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+        <li>Strawberry</li>
+        <li>Watermelon</li>
+        <li>Grapes</li>
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+
+            // Enable multiple selection
+            $("#selectable").selectable();
+
+        });
+    </script>
+
+</body>
+</html>
